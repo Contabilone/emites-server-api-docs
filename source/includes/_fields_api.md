@@ -20,7 +20,7 @@ A emissão em lote gera um pacote de transmissão de diversas notas fiscais elet
     serie                       | serie           |   Sim         |     Numérico            |    Até 3 dígitos             |    Série do Lote de Documentos Fiscais
     engine_de_calculo           | -               |   Não         |     Texto               |              -               |    Campo interno do Emites para indicar o engine de cálculo tributário desejado pelo emissor.<br>Ex:<br><strong>"taxweb"</strong>: Exclusivamente para casos onde o taxengine será o TaxRules <br><strong>"nexaas"</strong>: Exclusivamente para casos onde o taxengine será o Template Tributário Nexaas <br>Observação: Nos casos onde a request já está calculada, este atributo <strong>não</strong> deve ser enviado na request.
     <strong>nfes</strong> ou <strong>nfces</strong>               | NF-e            |   Sim         |     Array               |    Até 50 itens              |    Conjunto de documentos fiscais transmitidos, máximo de 50 documentos.
-
+    remote_id | - | Não | Texto | Deve possuir no mínimo um caractere alfabético | Destinado ao controle interno do ciclo de vida de um documento fiscal, pode ser utilizado posteriormente em [consultas de documentos](#request-tracker-request-id).
 
 <aside class="notice">
   Os requisítos descritos abaixo são para o envio de documentos individuais e lotes.

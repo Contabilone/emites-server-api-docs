@@ -93,7 +93,6 @@ EXEMPLO DE RESPOSTA:
  `success`    |                      | A importação foi concluída com sucesso e as regras antigas foram substituídas pelas da importação
  `error`      |                      | A importação foi concluída, mas nenhuma regra foi substituída porque erros foram identificados
 
-
 ## Erros de importação
 
 Os erros identificados durante o processo de importação são retornados pelo consulta de [status da importação](#consulta-de-importa-o) e seguem o seguinte formato:
@@ -206,6 +205,18 @@ Os seguintes atributos de condição podem ser enviados pelo CSV:
  `codigo_produto` | Código do produto | Sim | Sim | Sem restrições
  `vigencia_start` | Data inicial de vigência | Não | Não | Data válida no formato `dd/mm/aaaa`
  `vigencia_end` | Data final de vigência | Não | Não | Data válida no formato `dd/mm/aaaa`
+ `codigo_pais` | Código do país do destinatário | Sim | Sim | Sem restrições
+ `cnae_emitente` | CNAE do emitente | Sim | Sim | Sem restrições
+ `destino_operacao` | Identificador de Local de destino da operação | Sim | Sim | `1` para **"Interna"**, `2` para **"Interestadual"** e `3` para **"Exterior"**
+ `codigo_ean` | Código de Barras/EAN | Sim | Sim | Sem restrições
+ `producao_escala` | Produzido em escala relevante? | Não | Não | `S` para **Sim** e `N` para **Não**
+ `codigo_municipio_emitente` | Código do município do emitente | Sim | Sim | Sem restrições
+ `codigo_municipio_destinatario` | Código do município do destinatário | Sim | Sim | Sem restrições
+ `inscricao_estadual_emitente` | Inscrição estadual do emitente | Sim | Sim | Sem restrições
+ `inscricao_estadual_destinatario` | Inscrição estadual do destinatário | Sim | Sim | Sem restrições
+ `inscricao_municipal_emitente` | Inscrição municipal do emitente | Sim | Sim | Sem restrições
+ `inscricao_municipal_destinatario` | Inscrição municipal do destinatário | Sim | Sim | Sem restrições
+ `indicador_inscricao_estadual` | Indicador se o destinatário é contribuinte do ICMS | Sim | Sim | `1` para **"Contribuinte ICMS"**, `2` para **"Contribuinte isento de inscrição no cadastro de contribuintes do ICMS"** e `3` para **"Não contribuinte"**
 
 **Obs.**: O atributo `codigo_do_produto` pode ser omitido automaticamente durante a importação mesmo quando presente no CSV. O `codigo_do_produto` só **NÃO SERÁ OMITIDO** quando existir uma regra para a mesma natureza de operação e mesmo grupo tributário com condições diferentes mas consequências potencialmente conflitantes, de modo que a presença do atributo é relevante para evitar o enquadramento inadequado em determinados cenários.
 
@@ -345,16 +356,35 @@ Os seguintes atributos de consequência podem ser enviados pelo CSV:
  `reducao_de_base_de_calculo_st` | Redução da base de cálculo ST | ICMS | Valores numéricos
  `situacao_tributaria_icms` | Situação Tributária do ICMS | ICMS | Veja **Tabela de valores para Situação Tributária do ICMS**
  `uf_icms_st_devido` | UF de ICMS ST devido na operação | ICMS | Sigla da unidade federativa, em maiúsculo
- `aliquota_de_fcp_do_difal` | Alíquota de FCP do Difal | ICMS | Valores numéricos
  `aliquota_interestadual` | Alíquota interestadual | ICMS | Veja **Tabela de valores para Alíquota interestadual**
  `aliquota_interna_uf_destino` | Alíquota interna - UF destino | ICMS | Valores numéricos
  `base_de_calculo_da_uf_destino` | Base de cálculo da UF destino | ICMS | Valores numéricos
  `percentual_provisorio_de_partilha` | Percentual provisório de partilha | ICMS | Veja **Tabela de valores para Percentual provisório de partilha**
  `valor_icms_desonerado` | Valor do ICMS Desonerado | ICMS | Valores numéricos
+ `aliquota_fcp` | Percentual do ICMS relativo ao FCP | ICMS | Valores numéricos
+ `aliquota_fcp_st` | Percentual do ICMS relativo ao FCP ST | ICMS | Valores numéricos
+ `base_icmsst_retido` | Valor da BC do ICMS ST retido | ICMS | Valores numéricos
+ `aliquota_consumidor_final` | Alíquota suportada pelo Consumidor Final | ICMS | Valores numéricos
+ `valor_icms_substituto` | Valor do ICMS próprio do Substituto | ICMS | Valores numéricos
+ `valor_icmsst_retido` | Valor do ICMS ST retido | ICMS | Valores numéricos
+ `valor_base_calculo_fcp_st_retido` | Valor da BC do FCP retido anteriormente por ST | ICMS | Valores numéricos
+ `aliquota_fcp_st_retido` | Percentual do FCP retido anteriormente por ST | ICMS | Valores numéricos
+ `valor_fcp_st_retido` | Valor do FCP retido anteriormente por ST | ICMS | Valores numéricos
+ `perc_reducao_base_calculo_efetivo` | Percentual de redução da BC efetiva | ICMS | Valores numéricos
+ `valor_base_calculo_efetivo` | Valor da BC efetiva | ICMS | Valores numéricos
+ `aliquota_efetiva` | Alíquota do ICMS efetiva | ICMS | Valores numéricos
+ `valor_efetivo` | Valor do ICMS efetivo | ICMS | Valores numéricos
+ `aliquota_icms_simples_nacional` | Alíquota aplicável de cálculo do crédito (Simples Nacional) | ICMS | Valores numéricos
+ `credito_icms_simples_nacional` | Valor crédito do ICMS que pode ser aproveitado nos termos do art. 23 da LC 123 (Simples Nacional) | ICMS | Valores numéricos
+ `situacao_simples_nacional` | Situação Tributária do ICMS - Simples Nacional | ICMS | Veja **Tabela de valores para Situação Tributária do ICMS - Simples Nacional**
  `aliquota_ipi` | Alíquota do IPI | IPI | Valores numéricos
  `situacao_tributaria_ipi` | Situação Tributária do IPI | IPI | Valores numéricos
  `valor_por_unidade_em_reais` | Valor por unidade (em reais) | IPI | Valores numéricos
  `codigo_enquadramento` | Código de Enquadramento Legal (cEnq) | IPI | Sem restrições
+ `codigo_selo_controle` | Código do selo de controle IPI | Sem restrições
+ `quantidade_selo_controle` | Quantidade de selo de controle | Sem restrições
+ `perc_mercadoria_devolvida` | Percentual da mercadoria devolvida | Valores numéricos
+ `valor_ipi_devolvido` | Valor do IPI devolvido | Valores numéricos
  `aliquota_cofins` | Alíquota do COFINS | PIS e COFINS | Valores numéricos
  `aliquota_do_cofins_st` | Alíquota do COFINS-ST | PIS e COFINS | Valores numéricos
  `aliquota_do_pis_st` | Alíquota do PIS-ST | PIS e COFINS | Valores numéricos
@@ -419,23 +449,13 @@ Os seguintes atributos de consequência podem ser enviados pelo CSV:
 60  | ICMS cobrado anteriormente por substituição tributária
 70  | Com redução de base de cálculo e cobrança do ICMS por substituição tributária
 90  | Outros
-101 | Tributada pelo Simples Nacional com permissão de crédito
-102 | Tributada pelo Simples Nacional sem permissão de crédito
-103 | Isenção do ICMS no Simples Nacional para faixa de receita bruta
-201 | Tributada pelo Simples Nacional com permissão de crédito e com cobrança do ICMS por Substituição Tributária
-202 | Tributada pelo Simples Nacional sem permissão de crédito e com cobrança do ICMS por Substituição Tributária
-203 | Isenção do ICMS nos Simples Nacional para faixa de receita bruta e com cobrança do ICMS por Substituição Tributária
-300 | Imune
-400 | Não tributada pelo Simples Nacional
-500 | ICMS cobrado anteriormente por substituição tributária (substituído) ou por antecipação
-900 | Outros
 
 #### Tabela de valores para Alíquota interestadual
 
  Valor | Descrição
 -------|----------
- 4  | 4% alíquota para produtos importados
- 7  | 7% para os estados de origem do Sul e Sudeste (exceto ES), destinado para os estados do Norte, Nordeste, Centro-Oeste e Espírito Santo
+ 4 | 4% alíquota para produtos importados
+ 7 | 7% para os estados de origem do Sul e Sudeste (exceto ES), destinado para os estados do Norte, Nordeste, Centro-Oeste e Espírito Santo
  12 | 12% para os demais casos
 
 #### Tabela de valores para Percentual provisório de partilha
@@ -446,3 +466,18 @@ Os seguintes atributos de consequência podem ser enviados pelo CSV:
  60  | 60% em 2017
  80  | 80% em 2018
  100 | 100% a partir de 2019
+
+#### Tabela de valores para Situação Tributária do ICMS - Simples Nacional
+
+ Valor | Descrição
+-------|----------
+101 | Tributada pelo Simples Nacional com permissão de crédito
+102 | Tributada pelo Simples Nacional sem permissão de crédito
+103 | Isenção do ICMS no Simples Nacional para faixa de receita bruta
+201 | Tributada pelo Simples Nacional com permissão de crédito e com cobrança do ICMS por Substituição Tributária
+202 | Tributada pelo Simples Nacional sem permissão de crédito e com cobrança do ICMS por Substituição Tributária
+203 | Isenção do ICMS nos Simples Nacional para faixa de receita bruta e com cobrança do ICMS por Substituição Tributária
+300 | Imune
+400 | Não tributada pelo Simples Nacional
+500 | ICMS cobrado anteriormente por substituição tributária (substituído) ou por antecipação
+900 | Outros
