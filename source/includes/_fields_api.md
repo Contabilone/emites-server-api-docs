@@ -50,6 +50,8 @@ Contém informações gerais e metadados sobre a NF-e. Seus atributos são:
     just_contingencia           |   xJust      |  Sim quando Contingência     |     Texto e/ou número        |    15 a 256 caracteres   | Justificativa da entrada em contingência
     data_hora_contingencia      |   dhCont     |  Sim quando Contingência     |     Data    |  aaaa-mm-ddThh:mm:ss-03:00 | Data e Hora da entrada em contingência
     indicador_intermediador | indIntermed | Não | Numérico | 1 dígito | Indicador do Intermediador/Marketplace. Seleção entre:<br>0 = Operação sem intermediador (em site ou plataforma própria);<br>1 = Operação em site ou plataforma de terceiros (intermediários/marketplace).<br>
+    tp_calculo      |  -   |  Não     |     Texto    |  3 dígitos | (Trata-se de um atributo específico para uso do engine de cálculo TaxRules da TaxWeb.). Seleção entre `REC` ou `TAX`.
+    
 
 ## cliente (XML: dest)
 
@@ -208,6 +210,7 @@ Contém informações sobre os produtos contidos na NF-e. No XML, o nó  prod  �
     valor_aliquota_icms_operacao_anterior                   |     -           |  Não          |     Decimal               |  Até 13 dígitos, 2 casas decimais                     | Valor da alíquota ICMS da operação anterior (vlAliquotaICMSOperacaoAnterior). <br> (<i>Trata-se de um atributo específico para uso do engine de cálculo TaxRules da TaxWeb.</i>).
     informacoes_adicionais  |    infAdProd        |  Não          |     Texto   |  Até 500 caracteres    |  Informações adicionais do produto (norma referenciada, informações complementares, etc).
     situacao_fiscal  |    -    |  Não          |   Inteiro   |  2 dígitos  |  Atributo específico para para transações com SAP.
+    total_contem_icms  |    -    |  Não        |   TEXTO   |  1 dígitos  |  (Trata-se de um atributo específico para uso do engine de cálculo TaxRules da TaxWeb.). Seleção entre: <br>S - Sim<br>N - Não
 
 ## tributação (XML: imposto)
 
