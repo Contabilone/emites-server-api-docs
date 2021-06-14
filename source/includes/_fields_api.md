@@ -1122,6 +1122,7 @@ Grupo de Detalhamento da Forma de Pagamento. No XML, o nó detPag é subitem do 
 --------------------------------|-----------------|---------------------|-------------------------|------------------------------------|-----------------------------------------------------------
     tipo_de_pagamento           |  tPag           |  Sim                |  Texto                  |  2 caracteres                      |  01 = Dinheiro;<br>02 = Cheque;<br>03 = Cartão de Crédito;<br>04 = Cartão de Débito;<br>05 = Crédito Loja;<br>10 = Vale Alimentação;<br>11 = Vale Refeição;<br>12 = Vale Presente;<br>13 = Vale Combustível;<br>14 = Duplicata Mercantil;<br>15 = Boleto Bancário;<br>90 = Sem pagamento;<br>99 = Outros.
     valor_do_pagamento          |  vPag           |  Sim                |  Decimal                | 13 dígitos, 2 casas decimais       |
+    descricao_pagamento         |  xPag           |  Não                |  Texto                  | Até 60 caracteres                  | 
 
 ## cartao (XML: card)
 
