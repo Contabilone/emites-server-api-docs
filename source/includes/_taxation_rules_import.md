@@ -226,16 +226,16 @@ Os seguintes atributos de condição podem ser enviados pelo CSV:
 -------|----------
  001 | Amostra Grátis
  002 | Anulação de Valor
- 003 | Aquisição
+ 003 | Aquisição de Serviços
  004 | Armazenagem
  005 | Ativo Imobilizado
  006 | Ato Cooperativo
  007 | Baixa de Estoque a título de encerramento de atividade
  008 | Baixa de Estoque a título de perda, roubo ou deteriorização
  009 | Bonificação, Doação ou Brinde
- 010 | Comercialização
+ 010 | Revenda - Produção de Terceiros
  011 | Comodato
- 012 | Devolução de Compra - Industrialização
+ 012 | Devolução de Compra - Produção de Terceiros
  013 | Conserto ou Reparo
  014 | Consignação
  015 | Conta e Ordem de Terceiros
@@ -245,20 +245,21 @@ Os seguintes atributos de condição podem ser enviados pelo CSV:
  019 | Embalagem
  020 | Exposição ou Feira
  021 | ICMS retido por ST
- 022 | Industrialização
+ 022 | Venda - Produção Própria
  023 | Locação
- 024 | Operação fora estabelecimento
- 025 | Prestação
+ 024 | Operação fora estabelecimento - Produção Própria
+ 025 | Prestação de Serviços
  026 | Regime Especial Aduaneiro de Admissão temporária
  027 | Saldo Credor de ICMS
  028 | Saldo Devedor de ICMS
  029 | Uso e Consumo
  030 | Vasilhame ou Sacaria
- 031 | Devolução de Venda - Industrialização
+ 031 | Devolução de Revenda - Produção de Terceiros
  032 | Transferência
  033 | Simples Faturamento
- 034 | Devolução de Compra - Comercialização
- 035 | Devolução de Venda - Comercialização
+ 034 | Devolução de Compra - Produção Própria
+ 035 | Devolução de Venda - Produção Própria
+ 036 | Operação fora estabelecimento - Produção de Terceiros
  099 | Outros
 
 #### Tabela de valores para Origem do produto
