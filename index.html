@@ -5284,7 +5284,7 @@ EXEMPLO DE RESPOSTA
 <td>Não</td>
 <td>Texto</td>
 <td>Texto</td>
-<td>Aplicação do produto utilizado nas Regras de Tributação:<br><br>001 = Amostra Grátis<br>002 = Anulação de Valor<br>003 = Aquisição<br>004 = Armazenagem<br>005 = Ativo Imobilizado<br>006 = Ato Cooperativo<br>007 = Baixa de Estoque a título de encerramento de atividade<br>008 = Baixa de Estoque a título de perda, roubo ou deteriorização<br>009 = Bonificação, Doação ou Brinde<br>010 = Comercialização<br>011 = Comodato<br>012 = Devolução de Compra - Comercialização<br>013 = Conserto ou Reparo<br>014 = Consignação<br>015 = Conta e Ordem de Terceiros<br>016 = Crédito Acumulado de ICMS<br>017 = Demonstração<br>018 = Distribuição<br>019 = Embalagem<br>020 = Exposição ou Feira<br>021 = ICMS retido por ST<br>022 = Industrialização<br>023 = Locação<br>024 = Operação fora estabelecimento<br>025 = Prestação<br>026 = Regime Especial Aduaneiro de Admissão temporária<br>027 = Saldo Credor de ICMS<br>028 = Saldo Devedor de ICMS<br>029 = Uso e Consumo<br>030 = Vasilhame ou Sacaria<br>031 = Devolução de Venda - Comercialização<br>032 = Transferência<br>033 = Simples Faturamento<br>034 = Devolução de Compra - Industrialização<br>035 = Devolução de Venda - Industrialização<br>099 = Outros<br><br>OBS.: Se o <strong>engine_de_cálculo</strong> for diferente de <strong>nexaas</strong>, preencher com o código do respectivo TaxEngine.</td>
+<td>Aplicação do produto utilizado nas Regras de Tributação:<br><br>001 = Amostra Grátis<br>002 = Anulação de Valor<br>003 = Aquisição de Serviços<br>004 = Armazenagem<br>005 = Ativo Imobilizado<br>006 = Ato Cooperativo<br>007 = Baixa de Estoque a título de encerramento de atividade<br>008 = Baixa de Estoque a título de perda, roubo ou deteriorização<br>009 = Bonificação, Doação ou Brinde<br>010 = Revenda - Produção de Terceiros<br>011 = Comodato<br>012 = Devolução de Compra - Produção de Terceiros<br>013 = Conserto ou Reparo<br>014 = Consignação<br>015 = Conta e Ordem de Terceiros<br>016 = Crédito Acumulado de ICMS<br>017 = Demonstração<br>018 = Distribuição<br>019 = Embalagem<br>020 = Exposição ou Feira<br>021 = ICMS retido por ST<br>022 = Venda - Produção Própria<br>023 = Locação<br>024 = Operação fora estabelecimento - Produção Própria<br>025 = Prestação de Serviços<br>026 = Regime Especial Aduaneiro de Admissão temporária<br>027 = Saldo Credor de ICMS<br>028 = Saldo Devedor de ICMS<br>029 = Uso e Consumo<br>030 = Vasilhame ou Sacaria<br>031 = Devolução de Revenda - Produção de Terceiros<br>032 = Transferência<br>033 = Simples Faturamento<br>034 = Devolução de Compra - Produção Própria<br>035 = Devolução de Venda - Produção Própria<br>036 = Operação fora estabelecimento - Produção de Terceiros</br><br>099 = Outros<br><br>OBS.: Se o <strong>engine_de_cálculo</strong> for diferente de <strong>nexaas</strong>, preencher com o código do respectivo TaxEngine.</td>
 </tr>
 <tr>
 <td>fabricacao</td>
@@ -14283,7 +14283,7 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>003</td>
-<td>Aquisição</td>
+<td>Aquisição de Serviços</td>
 </tr>
 <tr>
 <td>004</td>
@@ -14311,7 +14311,7 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>010</td>
-<td>Comercialização</td>
+<td>Revenda - Produção de Terceiros</td>
 </tr>
 <tr>
 <td>011</td>
@@ -14319,7 +14319,7 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>012</td>
-<td>Devolução de Compra - Industrialização</td>
+<td>Devolução de Compra - Produção de Terceiros</td>
 </tr>
 <tr>
 <td>013</td>
@@ -14359,7 +14359,7 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>022</td>
-<td>Industrialização</td>
+<td>Venda - Produção Própria</td>
 </tr>
 <tr>
 <td>023</td>
@@ -14367,11 +14367,11 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>024</td>
-<td>Operação fora estabelecimento</td>
+<td>Operação fora estabelecimento - Produção Própria</td>
 </tr>
 <tr>
 <td>025</td>
-<td>Prestação</td>
+<td>Prestação de Serviços</td>
 </tr>
 <tr>
 <td>026</td>
@@ -14395,7 +14395,7 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>031</td>
-<td>Devolução de Venda - Industrialização</td>
+<td>Devolução de Revenda - Produção de Terceiros</td>
 </tr>
 <tr>
 <td>032</td>
@@ -14407,11 +14407,15 @@ EXEMPLO DE RESPOSTA:
 </tr>
 <tr>
 <td>034</td>
-<td>Devolução de Compra - Comercialização</td>
+<td>Devolução de Compra - Produção Própria</td>
 </tr>
 <tr>
 <td>035</td>
-<td>Devolução de Venda - Comercialização</td>
+<td>Devolução de Venda - Produção Própria</td>
+</tr>
+<tr>
+<td>036</td>
+<td>Operação fora estabelecimento - Produção de Terceiros</td>
 </tr>
 <tr>
 <td>099</td>
